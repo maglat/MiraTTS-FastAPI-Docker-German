@@ -1,25 +1,59 @@
 # MiraTTS
-A high quality extremely fast TTS model
+[MiraTTS](https://huggingface.co/YatharthS/MiraTTS) is a finetune of the excellent [Spark-TTS](https://huggingface.co/SparkAudio/Spark-TTS-0.5B) model for enhanced realism and stability. This repository also heavily optimizes Mira with Lmdeploy and boosts quality by using the high quality audio upsampler [FlashSR](https://github.com/ysharma3501/FlashSR) to generate high quality audio at over **100x** realtime!
 
+## Key benefits
+- Incredibly fast: Over 100x realtime by using Lmdeploy and batching.
+- High quality: Generates clear and crisp 48khz audio outputs which is much higher quality then most models.
+- Memory efficient: Works within 6gb vram.
+- Low latency: Latency can be low as 100ms.
+
+## Usage
+Simple 1 line installation:
+```
+uv pip install git+https://github.com/ysharma3501/MiraTTS.git
+```
+
+Running the model(bs=1):
 ```python
 from mira.model import MiraTTS
-mira_tts = MiraTTS('YatharthS/MiraTTS')
+from IPython.display import Audio
+mira_tts = MiraTTS('YatharthS/MiraTTS') ## downloads model from huggingface
 
-file = r"C:\Users\Nitin\Downloads\Linus%20Tech%20Tips.wav"
-file = file.replace("C:\\Users\\Nitin\\Downloads\\", "/mnt/c/Users/Nitin/Downloads/")
+file = "reference_file"
+text = "Alright, so have you ever heard of a little thing named text to speech? Well, it allows you to convert text into speech! I know, that's super cool, isn't it?"
 
 context_tokens = mira_tts.encode_audio(file)
-audio = mira_tts.generate("Alright, so have you ever heard of a little thing named text to speech? Well, it allows you to convert text into speech!... I know, that's super cool, isn't it?", context_tokens)
-from IPython.display import Audio
+audio = mira_tts.generate(text, context_tokens)
+
 Audio(audio, rate=48000)
-
-file = r"C:\Users\Nitin\Downloads\emotional_jessica1.mp3"
-file = file.replace("C:\\Users\\Nitin\\Downloads\\", "/mnt/c/Users/Nitin/Downloads/")
-
-context_tokens = mira_tts.encode_audio(file)
-
-audio = mira_tts.batch_generate(["Hey, what's up! I am feeling SO happy!", "Honestly, this is really interesting, isn't it?"], [context_tokens])
-from IPython.display import Audio
-Audio(audio, rate=48000)
-
 ```
+
+Running the model using batching: 
+```python
+file = "reference_file"
+text = ["Hey, what's up! I am feeling SO happy!", "Honestly, this is really interesting, isn't it?"]
+
+context_tokens = [mira_tts.encode_audio(file)]
+
+audio = mira_tts.batch_generate(text, context_tokens)
+
+Audio(audio, rate=48000)
+```
+
+Examples can be seen in the [huggingface model](https://huggingface.co/YatharthS/MiraTTS)
+
+I recommend reading these 2 blogs to better easily understand LLM tts models and how I optimize them
+- How they work: https://huggingface.co/blog/YatharthS/llm-tts-models
+- How to optimize them: https://huggingface.co/blog/YatharthS/making-neutts-200x-realtime
+
+## Next steps
+- [x] Release code and model
+- [ ] Support low latency streaming
+- [ ] Support multilingual models
+      
+## Final notes
+Thanks very much to the authors of Spark-TTS. Thanks for checking out this repository as well.
+
+Stars would be well appreciated, thank you.
+
+Email: yatharthsharma3501@gmail.com
