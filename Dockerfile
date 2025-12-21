@@ -63,7 +63,8 @@ RUN pip3 install --no-cache-dir --no-deps -e .
 
 # 5. Copy API code
 COPY app /app/app
-RUN mkdir -p /app/models /app/data
+# Ensure the voices directory exists inside the container
+RUN mkdir -p /app/models /app/data/voices
 
 EXPOSE 8000
 
