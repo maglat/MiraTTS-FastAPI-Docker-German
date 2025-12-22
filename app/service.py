@@ -99,7 +99,7 @@ class TTSService:
 
         # 4. Stitch with Fades and Silence
         audio_parts = []
-        silence_gap = self.create_silence(0.3)  # 300ms silence
+        silence_gap = self.create_silence(0.2)  # 200ms silence
 
         for i, response in enumerate(responses):
             # Decode
