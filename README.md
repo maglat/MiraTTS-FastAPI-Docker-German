@@ -1,4 +1,14 @@
 # MiraTTS
+
+## Fork changes to work with German language
+
+This Fork allow to use the German Mira TTS variant made by Sebastian Bodza
+https://huggingface.co/SebastianBodza/MiraToffel_miraTTS_german
+
+With the help of Sebastian in this thread https://huggingface.co/SebastianBodza/MiraToffel_miraTTS_german/discussions/1 the logic for sentence splitting for German language required entire adjustments. Sentences are now split by punctuation marks, which are typical in German language to end sentences. Before the split was done on capital letters. With the help of GPT 5.2 the programming was adjusted and works now for German language which now improve chunking.
+
+
+## Introduction
 [MiraTTS](https://huggingface.co/YatharthS/MiraTTS) is a finetune of the excellent [Spark-TTS](https://huggingface.co/SparkAudio/Spark-TTS-0.5B) model for enhanced realism and stability performing on par with closed source models. 
 This repository also heavily optimizes Mira with [Lmdeploy](https://github.com/InternLM/lmdeploy) and boosts quality by using [FlashSR](https://github.com/ysharma3501/FlashSR) to generate high quality audio at over **100x** realtime!
 
