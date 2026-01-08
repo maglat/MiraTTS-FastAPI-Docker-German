@@ -23,7 +23,7 @@ class TTSService:
 
     def initialize(self):
         try:
-            model_path = os.getenv("MODEL_DIR", "YatharthS/MiraTTS")
+            model_path = os.getenv("MODEL_DIR", "SebastianBodza/MiraToffel_miraTTS_german")
             logger.info(f"Initializing MiraTTS Model from: {model_path}")
             self.model = MiraTTS(model_dir=model_path)
             logger.info("Model loaded successfully.")
