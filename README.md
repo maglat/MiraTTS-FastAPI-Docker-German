@@ -54,8 +54,5 @@ I recommend reading these 2 blogs to better easily understand LLM tts models and
 - [ ] Support multilingual models
       
 ## Final notes
-Thanks very much to the authors of Spark-TTS. Thanks for checking out this repository as well.
 
-Stars would be well appreciated, thank you.
-
-Email: yatharthsharma3501@gmail.com
+This fork is based on the project of https://github.com/Si-ris-B
