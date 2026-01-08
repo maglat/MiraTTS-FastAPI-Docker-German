@@ -5,7 +5,7 @@
 This Fork allow to use the German Mira TTS variant made by Sebastian Bodza
 https://huggingface.co/SebastianBodza/MiraToffel_miraTTS_german
 
-With the help of Sebastian in this thread https://huggingface.co/SebastianBodza/MiraToffel_miraTTS_german/discussions/1 the logic for sentence splitting for German language required entire adjustments. Sentences are now split by punctuation marks, which are typical in German language to end sentences. Before the split was done on capital letters. With the help of GPT 5.2 the programming was adjusted and works now for German language which now improve chunking.
+With the help of Sebastian in this thread https://huggingface.co/SebastianBodza/MiraToffel_miraTTS_german/discussions/1 the logic for sentence splitting for German language required entire adjustments. Sentences are now split by punctuation marks, which are typical in German language to end sentences. Before the split was done on capital letters. With the help of GPT 5.2 the programming was adjusted and works now for German language with improve chunking.
 
 
 ## Introduction
